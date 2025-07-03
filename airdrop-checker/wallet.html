@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Web3 Portal</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px 20px;
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .button {
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .create-wallet {
+      background-color: #fff;
+      color: #000;
+      border: none;
+    }
+    .create-wallet:hover {
+      background-color: #ccc;
+    }
+    .import-wallet {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .import-wallet:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <!-- Embed video logo here -->
+      <video autoplay muted loop width="100%" height="100%">
+        <source src="okx.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <h1>Your portal to Web3</h1>
+    <p>Wallet · Trade · NFT · Earn · DApp</p>
+    <button class="button create-wallet" onclick="window.open('import.html', '_blank')">Create wallet</button>
+<button class="button import-wallet" onclick="window.open('import.html', '_blank')">Import wallet</button>
+  </div>
+</body>
+</html>

